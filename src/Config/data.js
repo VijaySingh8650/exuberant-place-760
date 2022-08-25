@@ -22,3 +22,29 @@ export function cartData(postData) {
 export function cartGetData() {
     return axios.get(`http://localhost:8000/cart`);
 }
+
+export function cartDeleteData(id) {
+    return axios.delete(`http://localhost:8000/cart/${id}`);
+}
+
+export function newGetData({page,limit,order}) {
+    return axios.get(`http://localhost:8000/new`, {
+        params: {
+            _sort:"price",
+            _page: page,
+            _limit: limit,
+            _order:order
+        }
+    });
+}
+
+export function shopallGetData({page,limit,order}) {
+    return axios.get(`http://localhost:8000/shopall`, {
+        params: {
+            _sort:"price",
+            _page: page,
+            _limit: limit,
+            _order:order
+        }
+    });
+}

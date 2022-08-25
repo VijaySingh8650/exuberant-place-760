@@ -72,3 +72,20 @@ box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 .searchIconOfProduct{
     cursor: pointer;
 }
+.flex{
+    display: flex;
+    flex-direction: column;
+}
+.subMenu{
+    display: none;
+}
+@media screen and (max-width:1200px) {
+    .links{
+        display: none;
+    }
+    .subMenu{
+        display: block;
+    }
+
+   
+}

@@ -1,4 +1,4 @@
-import { Box, Img, Heading,Text, Button, SimpleGrid, Container } from '@chakra-ui/react'
+import { Box, Img, Heading,Text, Button, SimpleGrid} from '@chakra-ui/react'
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -6,9 +6,10 @@ import { Link } from 'react-router-dom';
 import { homeGetData } from '../Config/data';
 import styles from "./home.module.css";
 import BasicUsage from './ModalComponent';
+import Product from './Product';
 export default function Home() {
   const [data, setData] = useState([]);
-  const [over, setOver] = useState(false);
+  
   const [show,setShow]= useState(false);
   const [product,setProduct]= useState({});
 
@@ -50,21 +51,9 @@ export default function Home() {
         
         {
           data && data.map((item) => {
-            const { image1, id, category,price,image2 } = item;
-            return <Box key={id} className={styles.grid_child} onClick={()=>isOpen(item)}>
-              <Box className={styles.homeImage}>
-
-                <Img src={image1} alt={price} className={styles.image_homeImage} />
-                
-              </Box>
-              <Box align="left">
-                
-
-              <Text>{category}</Text>
-                <Text>$ {price}</Text>
-              </Box>
-                
-            </Box>
+            
+            return <Product key={item.id} data={item} isOpen={isOpen} />
+            
           })
        }
 

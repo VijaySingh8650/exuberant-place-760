@@ -1,11 +1,13 @@
-import { Box, Img,Text,Input,InputRightElement,InputGroup, Button,Container} from '@chakra-ui/react'
+import { Box, Img,Text,Input,InputRightElement,InputGroup, Container} from '@chakra-ui/react'
 import React, { useState }  from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import styles from "./navbar.module.css";
 import {FiUser,FiSearch,FiShoppingBag } from "react-icons/fi";
+
 import { useContext } from 'react';
 import { AuthContext } from '../Context/ContextProvider';
 import { CloseIcon, SearchIcon} from '@chakra-ui/icons'
+import NavbarMenu from './NavbarMenu';
 
 
 const linksOfNavbar = [{
@@ -67,13 +69,17 @@ export default function Navbar() {
 
 
 
-      <Box className={styles.container}>
+        <Box className={styles.container}>
+            <Box className={styles.subMenu}>
+
+            <NavbarMenu linksOfNavbar={linksOfNavbar}  />
+            </Box>
           <Box>
               <Link to="/">
                <Img src="https://cdn.shopify.com/s/files/1/0627/7388/7215/files/04122019_logo2_90x.png?b=allow_avif&v=1645644264" alt=""/>
               </Link>
           </Box>
-          <Box >
+          <Box className={styles.links} >
               {linksOfNavbar.map((ele,index) => {
                   return <NavLink className={styles.subContainer}
                       style={({isActive})=>(isActive?activeStyle:defaultStyle)}

@@ -13,7 +13,7 @@ import { cartData, cartGetData } from '../Config/data';
 
 export default function BasicUsage({ isOpen, isClose, product}) {
     // console.log(product);
-    const { image1, image2, category, price, details } = product;
+    const { image1, image2, category, price, details,Measurement } = product;
     const [isSuccess, setIsSuccess] = useState(false);
     const [isAdded, setIsAdded] = useState(false);
     const [check, setCheck] = useState([]);
@@ -87,8 +87,10 @@ export default function BasicUsage({ isOpen, isClose, product}) {
                           <Img style={{borderRadius:"10px"}} width="200px" src={image2} alt={price} />
                       <Box>
                           <Img style={{borderRadius:"10px"}} width="100%" height="180px" src={image1} alt={price} />
-                          <Text  mt={2} variants={["sm","base","md"]}><b>Price:</b> $ {price}</Text>
-                          <Text className='text'>{details}</Text>
+                <Text mt={2} variants={["sm", "base", "md"]}><b>Price:</b>${price}</Text>
+                
+                          <Text mt={2} mb={2} variants={["sm", "base", "md"]} className='text'><b>Size:</b> {Measurement}</Text>
+                          <Text variants={["sm", "base", "md"]} className='text'><b>{details}</b></Text>
                       </Box> 
                       </SimpleGrid>
                       
