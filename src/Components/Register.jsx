@@ -167,7 +167,7 @@ export default function Register() {
         formData.first_name = upperFirst;
 
         var upperLast = formData.last_name[0].toUpperCase();
-        for (var j = 1; j < formData.last_name.length; j++){
+        for ( j = 1; j < formData.last_name.length; j++){
           upperLast+=formData.last_name[j].toLowerCase();
         }
         formData.last_name = upperLast;

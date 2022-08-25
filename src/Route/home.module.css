@@ -27,12 +27,13 @@
 }
 .image{
     height: 100%;
+    object-fit: cover;
 }
 .btn{
   border:1px solid white;
 }
 .grid{
-    margin: 50px 20px;
+    margin: 30px 20px;
     gap: 10px;
 }
 .homeImage{
