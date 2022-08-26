@@ -48,3 +48,13 @@ export function shopallGetData({page,limit,order}) {
         }
     });
 }
+export function searchGetData({page,limit,order}) {
+    return axios.get(`http://localhost:8000/allproducts`, {
+        params: {
+            _sort:"price",
+            _page: page,
+            _limit: limit,
+            _order:order
+        }
+    });
+}

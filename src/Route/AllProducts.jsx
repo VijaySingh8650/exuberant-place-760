@@ -6,11 +6,11 @@ import { useState} from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Footer from '../Components/Footer';
 
-import { newGetData } from '../Config/data';
+import { searchGetData } from '../Config/data';
 import styles from "./home.module.css";
 import BasicUsage from './ModalComponent';
 import Product from './Product';
-export default function New() {
+export default function AllProducts() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [show,setShow]= useState(false);
@@ -24,13 +24,13 @@ export default function New() {
   
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title="New – Lovoda"
+    document.title="All Products – Lovoda"
   },[])
 
   useEffect(() => {
     setIsLoading(true);
     setTimeout(() => {
-      newGetData({ page, limit: 8, order }).then((res) => {
+      searchGetData({ page, limit: 12, order }).then((res) => {
         
         window.scrollTo(0, 150);
         setData(res.data);
@@ -71,7 +71,7 @@ export default function New() {
 
   return (
     <>
-      <Heading align="left" ml="20px" mt="20px" variant={["sm","base","md"]}>New</Heading>
+      <Heading align="left" ml="20px" mt="20px" variant={["sm","base","md"]}>All Products</Heading>
       <Box m="20px"  style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
         <Box style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
           <Text mr={2} variant={["sm","base","md"]}>Filter: </Text>
@@ -99,7 +99,7 @@ export default function New() {
 
 
         </Box>
-        <Text variant={["sm","base","md"]}>Total: {32} Products</Text>
+        <Text variant={["sm","base","md"]}>Total: {72} Products</Text>
 
       </Box>
     
@@ -128,7 +128,7 @@ export default function New() {
       }
       
 
-      {isLoading?null: new Array(4).fill(0).map((a,i)=>{
+      {isLoading?null: new Array(6).fill(0).map((a,i)=>{
           return <Button className={styles.page} bg="black" color="white" variant={["sm", "base", "md"]} key={i} disabled={page === i + 1}
             onClick={() => {
               setPage(i + 1);
