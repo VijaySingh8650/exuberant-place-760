@@ -1,4 +1,4 @@
-import { Box, Img,Text,Input,InputRightElement,InputGroup, Container} from '@chakra-ui/react'
+import { Box, Img,Text,Input,InputRightElement,InputGroup, Container, Menu, MenuButton,MenuList, MenuItem} from '@chakra-ui/react'
 import React, { useState }  from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import styles from "./navbar.module.css";
@@ -18,8 +18,13 @@ const linksOfNavbar = [{
     path:"New"
     }, {
     to:"/shopall",
-    path:"ShopAll"
-    }, {
+    path:"Shop All"
+    },
+     {
+    to:"/allproducts",
+    path:"All Products"
+    },
+    {
     to:"/earrings",
     path:"Earrings"
     }, {
@@ -28,12 +33,6 @@ const linksOfNavbar = [{
     }, {
     to:"/bracelets",
     path:"Bracelets" 
-    }, {
-    to:"/rings",
-    path:"Rings" 
-    }, {
-     to:"/shopsocial",
-    path:"Shop Social" 
     }]
 
 const activeStyle = {
@@ -48,7 +47,7 @@ const defaultStyle = {
 }
 
 export default function Navbar() {
-    const { isAuth } = useContext(AuthContext);
+    const { isAuth,toggleAuth } = useContext(AuthContext);
     const [show, setShow] = useState(false);
 
     const handleShow = () => {
@@ -90,7 +89,24 @@ export default function Navbar() {
           </Box>
           <Box className={styles.containerIcon}>
                 <FiSearch className={styles.icon} onClick={handleShow} />
+                {
+                   isAuth? <Menu>
+  {({ isOpen }) => (
+    <>
+      <MenuButton isActive={isOpen}>
+        <FiUser className={styles.icon}/>
+      </MenuButton>
+      <MenuList>
+        <MenuItem onClick={()=>toggleAuth()}><Link to="/login">Log-out</Link></MenuItem>
+        
+      </MenuList>
+                            </>
+                            
+  )}
+                    </Menu>
+                        :
               <Link to={isAuth?"/cart":"/login"}><FiUser  className={styles.icon}/></Link>
+                }
               <Link to="/cart"><FiShoppingBag  className={styles.icon}/></Link>
               
           </Box>
@@ -106,11 +122,14 @@ export default function Navbar() {
         pr='4.5rem'
         type="text"
         placeholder='Search Your Favorite Jewellery'
-                />
+                            />
+                            <Link to="/searchproducts">
+
                 <InputRightElement width='4.5rem'>
 
                                 <SearchIcon className={styles.searchIconOfProduct} />
                 </InputRightElement>
+                            </Link>
                
      
         

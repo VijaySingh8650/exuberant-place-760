@@ -41,6 +41,7 @@ export default function Register() {
   
 
   useEffect(() => {
+    document.title="Register – Lovoda"
      loginGetData().then((res) => {
         console.log(res.data);
         setCheckData(res.data);
@@ -140,7 +141,7 @@ export default function Register() {
           title: 'Log-in, To see your favorite jewellery',
           description: "You are already a member of our family",
           status: 'success',
-          duration: 9000,
+          duration: 4000,
           isClosable: true,
         })
           
@@ -181,7 +182,7 @@ export default function Register() {
           title: 'Log-in to buy what suits you',
           description: "Welcome to our family",
           status: 'success',
-          duration: 9000,
+          duration: 4000,
           isClosable: true,
         })
            setTimeout(() => {

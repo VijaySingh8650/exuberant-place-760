@@ -1,11 +1,11 @@
 import { Box, Img,  Td, Text, Tr } from '@chakra-ui/react';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { MdAdd, MdRemove } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { cartDeleteData } from '../Config/data';
 import styles from "./cart.module.css";
 
-export default function CartIndividual({ item, callfunction}) {
+export default function CartIndividual({ item, callfunction,total,setTotal}) {
   const { image1,image2, id, category, price } = item;
 
     const [count, setCount] = useState(1);
@@ -15,12 +15,19 @@ export default function CartIndividual({ item, callfunction}) {
   const [over, setOver] = useState(false);
 
 
+  useEffect(() => {
+    setTotal((total)=>total+price);
+  },[])
+
+
     const handleDelete = (id) => {
         
         
             
             cartDeleteData(id).then((res) => {
-                callfunction();
+              callfunction();
+              
+              setTotal(0);
                 
             }).catch((err) => {
                 console.log(err);
@@ -41,32 +48,59 @@ export default function CartIndividual({ item, callfunction}) {
                 />
               </Box>
                     <Box className={styles.subproductText}>
-                      <Text>{category}</Text>
-                      <Text>${price.toFixed(parseInt(2))}</Text>
-                    </Box>
-                  </Box>
-                </Td>
-                <Td >
-                  <Box className={styles.delete}>
+                      <Text variant={["sm","base","md"]}>{category}</Text>
+                <Text mt={2} variant={["sm", "base", "md"]}>${price.toFixed(parseInt(2))}</Text>
+                <Box mt={2} className={styles.delete_item}>
 
                   <Box   className={styles.quantity}>
+                         
                             {
-                                count === 1 ? null : <MdRemove onClick={() => {
+                                count===1?<MdRemove style={{ cursor: "pointer",color:"grey" }}/>:<MdRemove onClick={() => {
                                     setCount(count - 1);
-                                    setAmount(amount - price);
+                    setAmount(amount - price);
+                    setTotal((total)=>total-price);
                                     
                                 }}
                                     style={{ cursor: "pointer" }}
                                 />
                             }
+                    
+                      <Text>{count}</Text>
+                  <MdAdd  onClick={()=>{
+                                    setCount(count + 1);
+                  setAmount(amount + price);
+                  setTotal((total)=>total+price);
+                                
+                            }}
+                                style={{cursor: "pointer"}}
+                            />
+                  </Box>
+               <RiDeleteBin6Line style={{ marginLeft: "10px", cursor: "pointer" }} onClick={()=>handleDelete(id)} />
+                  </Box>
+                    </Box>
+                  </Box>
+                </Td>
+                <Td className={styles.delete_item_quant}>
+                  <Box className={styles.delete}>
+
+                  <Box   className={styles.quantity}>
+                         
                             {
-                                count===1?<MdRemove style={{ cursor: "pointer",color:"grey" }}/>:null
+                                count===1?<MdRemove style={{ cursor: "pointer",color:"grey" }}/>:<MdRemove onClick={() => {
+                                    setCount(count - 1);
+                    setAmount(amount - price);
+                    setTotal((total)=>total-price);
+                                    
+                                }}
+                                    style={{ cursor: "pointer" }}
+                                />
                             }
                     
                       <Text>{count}</Text>
                   <MdAdd  onClick={()=>{
                                     setCount(count + 1);
-                                setAmount(amount + price);
+                  setAmount(amount + price);
+                  setTotal((total)=>total+price);
                                 
                             }}
                                 style={{cursor: "pointer"}}

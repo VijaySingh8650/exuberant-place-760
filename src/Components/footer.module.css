@@ -1,0 +1,45 @@
+.container{
+    margin: 20px auto;
+   
+}
+.contain{
+    margin: 20px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 0 20px;
+}
+.contact{
+    margin-left: 100px;
+}
+.email{
+    margin-bottom: 20px;
+}
+.subs{
+    width: 50%;
+    margin: auto;
+}
+.iconParent{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin: 10px 0;
+}
+.icon{
+    font-size: 22px;
+    margin: 0 10px;
+}
+@media screen and (max-width:1200px) {
+    .container{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .textInfo{
+        display: flex;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .text{
+        line-height: 30px;
+    }
+}

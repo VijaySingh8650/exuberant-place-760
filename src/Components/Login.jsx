@@ -22,7 +22,7 @@ export default function Login() {
     email: "",
     password:""
   })
-  const { isAuth, toggleAuth } = useContext(AuthContext);
+  const { toggleAuth } = useContext(AuthContext);
   const [show, setShow] = useState(false);
   const [checkData, setCheckData] = useState([]);
 
@@ -46,6 +46,7 @@ export default function Login() {
    
   }
   useEffect(() => {
+    document.title="Login – Lovoda"
      loginGetData().then((res) => {
         console.log(res.data);
         setCheckData(res.data);
@@ -97,7 +98,7 @@ export default function Login() {
           title: 'Successfully Logged-in.',
           description: "Enjoy the shopping",
           status: 'success',
-          duration: 9000,
+          duration: 4000,
           isClosable: true,
         })
             

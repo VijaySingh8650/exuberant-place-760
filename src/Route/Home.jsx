@@ -3,6 +3,7 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Footer from '../Components/Footer';
 import { homeGetData } from '../Config/data';
 import styles from "./home.module.css";
 import BasicUsage from './ModalComponent';
@@ -13,10 +14,14 @@ export default function Home() {
   const [show,setShow]= useState(false);
   const [product,setProduct]= useState({});
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title="Lovoda"
+  },[])
 
   useEffect(() => {
     homeGetData().then((res) => {
-      // console.log(res.data);
+      console.log(res.data);
       setData(res.data);
     }).catch((err) => {
       console.log(err);
@@ -58,7 +63,11 @@ export default function Home() {
        }
 
       </SimpleGrid>
+      <Link to="/allproducts">
+       <Button color="white" bg="black" variant={["sm","base","md"]}>View All</Button>
+      </Link>
       <BasicUsage product={product} isOpen={show} isClose={isClose} />
+      <Footer/>
       </>
   )
 }

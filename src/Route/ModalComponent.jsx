@@ -65,7 +65,7 @@ export default function BasicUsage({ isOpen, isClose, product}) {
     <>
       
 
-      <Modal isOpen={isOpen} onClose={isClose}>
+      <Modal  isOpen={isOpen} onClose={isClose}>
         <ModalOverlay />
         <ModalContent>
                   <ModalHeader>{category}</ModalHeader>

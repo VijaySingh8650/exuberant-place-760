@@ -4,6 +4,7 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useState} from 'react';
 import { useSearchParams } from 'react-router-dom';
+import Footer from '../Components/Footer';
 
 import {shopallGetData} from '../Config/data';
 import styles from "./home.module.css";
@@ -25,20 +26,24 @@ export default function ShopAll() {
   let orderby = (search.get("order")) || "asc";
   const [order, setOrderby] = useState(orderby);
   const [page, setPage] = useState(num);
-
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title="Shop All – Lovoda"
+  },[])
 
   useEffect(() => {
     setIsLoading(true);
     setTimeout(() => {
       shopallGetData({ page, limit: 8, order }).then((res) => {
         
-       
+         window.scrollTo(0, 150);
         setData(res.data);
         setIsLoading(false);
       }).catch((err) => {
         console.log(err);
       })
-    }, 1500)
+    }, 1000)
   }, [page, order]);
 
   useEffect(() => {
@@ -128,13 +133,14 @@ export default function ShopAll() {
       
 
       {isLoading?null: new Array(4).fill(0).map((a,i)=>{
-          return <Button bg="black" color="white" variant={["sm", "base", "md"]} key={i} disabled={page === i + 1}
+          return <Button className={styles.page} bg="black" color="white" variant={["sm", "base", "md"]} key={i} disabled={page === i + 1}
             onClick={() => {
               setPage(i + 1);
             }}
           >{i + 1}</Button>
         })
       }
+      <Footer/>
       </>
   )
 }
