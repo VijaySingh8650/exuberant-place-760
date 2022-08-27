@@ -29,7 +29,7 @@ export default function Earrings() {
   
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title="New – Lovoda"
+    document.title="Earrings – Lovoda"
   },[])
 
   useEffect(() => {
@@ -116,7 +116,7 @@ export default function Earrings() {
   emptyColor='gray.200'
   color='black'
           size='xl'
-          m={20}
+          m={40}
 />: <>
         <SimpleGrid columns={[1, 2, 4, 4]} className={styles.grid}>
         

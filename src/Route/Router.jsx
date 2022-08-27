@@ -13,6 +13,7 @@ import PrivateRoute from './PrivateRoute'
 
 import AllProducts from './AllProducts'
 import ShopAll from './ShopAll'
+import SearchProducts from './SearchProducts'
 
 
 export default function Router() {
@@ -28,12 +29,13 @@ export default function Router() {
           <Route path="/login" element={<Login/>} />
           <Route path="/register" element={<Register/>} />
       <Route path="/allproducts" element={<AllProducts />} />
+      <Route path="/searchproducts" element={<SearchProducts />} />
       <Route path="/*" element={<Page404/>} />
       <Route path="/cart" element={
-        // <PrivateRoute>
+        <PrivateRoute>
 
-        // </PrivateRoute>
           <Cart />
+        </PrivateRoute>
       } />
     </Routes>
   )
