@@ -48,7 +48,7 @@ export default function Login() {
   useEffect(() => {
     document.title="Login – Lovoda"
      loginGetData().then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setCheckData(res.data);
       }).catch((err) => {
         console.log(err);

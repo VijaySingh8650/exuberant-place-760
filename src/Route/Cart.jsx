@@ -71,7 +71,7 @@ export default function Cart() {
                           />:data.length === 0 ?
         <Box className={styles.dataisEmpty}>
           <Heading variant={["sm", "base", "md"]}>Your cart is empty</Heading>
-          <Link to="/new">
+          <Link to="/allproducts">
             <Button mt={2} bg="black" color="white" variant={["sm", "base", "md"]}>Continue shopping</Button>
           </Link>
       
@@ -80,7 +80,7 @@ export default function Cart() {
         <Box className={styles.container}>
       <Box className={styles.heading}>
         <Heading variant={["sm","base","md"]}>Your cart</Heading>
-        <Text variant={["sm","base","md"]} style={{textDecoration:"underline"}}><Link to="/shopall">Continue shopping</Link></Text>
+        <Text variant={["sm","base","md"]} style={{textDecoration:"underline"}}><Link to="/allproducts">Continue shopping</Link></Text>
       </Box>
        
       {
@@ -130,7 +130,7 @@ export default function Cart() {
       }
             <Box className={styles.checkout}>
               <Text variant={["sm", "base", "md"]}>Subtotal ${amount.toFixed(parseInt(2))}</Text> 
-              <Link to="/new" ><Button className={styles.btn}  bg="black" color="white" variant={["sm", "base", "md"]}
+              <Link to="/allproducts" ><Button className={styles.btn}  bg="black" color="white" variant={["sm", "base", "md"]}
                 
                  onClick={() =>
         toast({

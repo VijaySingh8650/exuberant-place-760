@@ -115,7 +115,7 @@ export default function ShopAll() {
   emptyColor='gray.200'
   color='black'
           size='xl'
-          m={20}
+          m={40}
 />: <>
         <SimpleGrid columns={[1, 2, 4, 4]} className={styles.grid}>
         

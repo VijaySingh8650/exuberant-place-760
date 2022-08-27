@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useState} from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Footer from '../Components/Footer';
+import Page404 from '../Components/Page404';
 
 import { searchGetData } from '../Config/data';
 import styles from "./home.module.css";
@@ -67,6 +68,7 @@ export default function AllProducts() {
    const isClose = () => {
     setShow(false);
   }
+  
 
 
   return (
@@ -111,7 +113,7 @@ export default function AllProducts() {
   emptyColor='gray.200'
   color='black'
           size='xl'
-          m={20}
+          m={40}
 />: <>
         <SimpleGrid columns={[1, 2, 4, 4]} className={styles.grid}>
         
