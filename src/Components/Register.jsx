@@ -43,7 +43,7 @@ export default function Register() {
   useEffect(() => {
     document.title="Register – Lovoda"
      loginGetData().then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setCheckData(res.data);
       }).catch((err) => {
         console.log(err);
@@ -138,7 +138,7 @@ export default function Register() {
         setIsErrorEmail(false);
           setIsErrorPassword(false);
             toast({
-          title: 'Log-in, To see your favorite jewellery',
+          title: 'Log-in, To see what suits you',
           description: "You are already a member of our family",
           status: 'success',
           duration: 4000,

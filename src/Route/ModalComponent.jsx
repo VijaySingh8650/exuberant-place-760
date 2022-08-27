@@ -20,7 +20,7 @@ export default function BasicUsage({ isOpen, isClose, product}) {
     function showData() {
          cartGetData().then((res) => {
              setCheck(res.data);
-             console.log(res.data);
+            //  console.log(res.data);
            
         }).catch((err) => {
             console.log(err);

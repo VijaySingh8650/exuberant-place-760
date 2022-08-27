@@ -47,7 +47,7 @@ const defaultStyle = {
 }
 
 export default function Navbar() {
-    const { isAuth,toggleAuth } = useContext(AuthContext);
+    const { isAuth,toggleAuth,querry,toggleQuerry,clickBtn } = useContext(AuthContext);
     const [show, setShow] = useState(false);
 
     const handleShow = () => {
@@ -107,6 +107,8 @@ export default function Navbar() {
                         :
               <Link to={isAuth?"/cart":"/login"}><FiUser  className={styles.icon}/></Link>
                 }
+
+                
               <Link to="/cart"><FiShoppingBag  className={styles.icon}/></Link>
               
           </Box>
@@ -118,16 +120,17 @@ export default function Navbar() {
             
             <Container className={styles.search}>
             <InputGroup size='md'>
-      <Input
+                            <Input
+                                value={querry}
         pr='4.5rem'
         type="text"
         placeholder='Search Your Favorite Jewellery'
-                            />
+                                onChange={toggleQuerry}       />
                             <Link to="/searchproducts">
 
                 <InputRightElement width='4.5rem'>
 
-                                <SearchIcon className={styles.searchIconOfProduct} />
+                                    <SearchIcon className={styles.searchIconOfProduct} onClick={clickBtn} />
                 </InputRightElement>
                             </Link>
                
