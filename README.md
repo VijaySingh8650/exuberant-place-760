@@ -1,4 +1,30 @@
-# Lovoda Clone Website
-LOVODA is a women's fashion brand deals with earrings, rings, necklaces, bags & many more.
+<h2 align="center" >HomeDecor <img src="/frontend/public/logo.png" alt="home_page" width="20rem"/></h2>
 
-`Website`[https://lovoda-ecommerce-website.netlify.app/]
+
+ <h3>Lovoda is a women's fashion brand website that deals with earrings, rings, bags, necklaces, bracelets and many more established in 2012 in the city of Baltimore, Maryland.</h3>
+
+## Technologies I used
+ReactJS | CSS | Chakra UI | HTML 
+
+ ## It is an individual project, developed in 5 days.
+
+
+<h2>Home Page</h2>
+<img src="public/Images/home.png" alt="home_page"/>
+
+
+<h2>Login Page</h2>
+<img src="public/Images/login.png"" alt="login"/>
+
+
+<h2>Products</h2>
+<img src="public/Images/products.png"" alt="products"/>
+
+
+<h2>Admin</h2>
+<img src="public/Images/cart.png" alt="cart"/>
+
+ 
+ <h3 align="center"><i>Thank You for visiting my Project Repository.</i></h3> 
+
+
