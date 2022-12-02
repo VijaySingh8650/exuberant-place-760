@@ -1,34 +1,34 @@
 import axios from "axios";
 
 export function loginData(postData) {
-    return axios.post(`https://ecommerce-fake-app.herokuapp.com/login`, postData);
+    return axios.post(`${process.env.REACT_APP_URL}/login`, postData);
 }
 export function loginGetData() {
-    return axios.get(`https://ecommerce-fake-app.herokuapp.com/login`);
+    return axios.get(`${process.env.REACT_APP_URL}/login`);
 }
 
 export function loginSuccessData(postData) {
-    return axios.post(`https://ecommerce-fake-app.herokuapp.com/loginsuccess`, postData);
+    return axios.post(`${process.env.REACT_APP_URL}/loginsuccess`, postData);
 }
 
 export function homeGetData() {
-    return axios.get(`https://ecommerce-fake-app.herokuapp.com/home`);
+    return axios.get(`${process.env.REACT_APP_URL}/home`);
 }
 
 
 export function cartData(postData) {
-    return axios.post(`https://ecommerce-fake-app.herokuapp.com/cart`, postData);
+    return axios.post(`${process.env.REACT_APP_URL}/cart`, postData);
 }
 export function cartGetData() {
-    return axios.get(`https://ecommerce-fake-app.herokuapp.com/cart`);
+    return axios.get(`${process.env.REACT_APP_URL}/cart`);
 }
 
 export function cartDeleteData(id) {
-    return axios.delete(`https://ecommerce-fake-app.herokuapp.com/cart/${id}`);
+    return axios.delete(`${process.env.REACT_APP_URL}/cart/${id}`);
 }
 
 export function newGetData({page,limit,order}) {
-    return axios.get(`https://ecommerce-fake-app.herokuapp.com/new`, {
+    return axios.get(`${process.env.REACT_APP_URL}/new`, {
         params: {
             _sort:"price",
             _page: page,
@@ -39,7 +39,7 @@ export function newGetData({page,limit,order}) {
 }
 
 export function shopallGetData({page,limit,order}) {
-    return axios.get(`https://ecommerce-fake-app.herokuapp.com/shopall`, {
+    return axios.get(`${process.env.REACT_APP_URL}/shopall`, {
         params: {
             _sort:"price",
             _page: page,
@@ -49,7 +49,7 @@ export function shopallGetData({page,limit,order}) {
     });
 }
 export function searchGetData({page,limit,order}) {
-    return axios.get(`https://ecommerce-fake-app.herokuapp.com/allproducts`, {
+    return axios.get(`${process.env.REACT_APP_URL}/allproducts`, {
         params: {
             _sort:"price",
             _page: page,
@@ -61,7 +61,7 @@ export function searchGetData({page,limit,order}) {
 
 export function searchData(querry) {
     if (!querry) return Promise.reject("Something went wrong");
-    return axios.get(`https://ecommerce-fake-app.herokuapp.com/allproducts`, {
+    return axios.get(`${process.env.REACT_APP_URL}/allproducts`, {
         params: {
             q:querry
         }
